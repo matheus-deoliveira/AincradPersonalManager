@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     
     @Override
-    public void addCorsMappings(CorsRegistry registery) {
+    public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Libera tudo
                 .allowedOrigins("http://localhost:4200") // Apenas para o Angular local
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
