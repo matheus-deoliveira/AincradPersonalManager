@@ -31,4 +31,15 @@ public class QuestController {
         questService.deleteQuest(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}/complete")
+    public ResponseEntity<?> completeQuest(@PathVariable Long id) {
+        try {
+            Quest completedQuest = questService.completeQuest(id);
+            return ResponseEntity.ok(completedQuest);
+        } catch (RuntimeException e) {
+            // Retorna erro 400 (Bad Request) com a mensagem do erro (ex: "Já completada")
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

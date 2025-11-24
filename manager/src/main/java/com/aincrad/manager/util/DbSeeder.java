@@ -14,6 +14,7 @@ public class DbSeeder {
     CommandLineRunner initDatabase(PlayerRepository playerRepository) {
         return args -> {
             if (playerRepository.count() == 0) {
+
                 // Cria Kirito (ID 1)
                 Player p1 = new Player();
                 p1.setNickname("Kirito");
